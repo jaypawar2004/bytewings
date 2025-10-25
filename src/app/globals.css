@@ -1,26 +1,49 @@
-@import "tailwindcss";
+/* 1. Tailwind ki main files (hamesha top par) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* 2. Aapke CSS variables aur base styles */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 3. Aapki custom animations (ye sahi hain) */
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100px) ;
+    /* distance upar move */
+  }
+  80%{
+    transform: translateY(100px);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.float {
+  animation: floatY 5s ease-in-out infinite ;
+}
+
+
+@keyframes floatX {
+  0%, 100% {
+    transform: translateY(-50px);
+  }
+  50% {
+    transform: translateX(100px); /* distance upar move */
+  }
+  
+}
+
+.float1 {
+  animation: floatX 5s ease-in-out infinite ;
+}
+
+/* Provide a custom utility for `outline-ring/50` (escaped slash).
+   Adjust color and spread below as needed. */
+@layer utilities {
+  .outline-ring\/50 {
+    /* a simple ring-like box-shadow at 50% opacity */
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.5);
+  }
 }
