@@ -78,14 +78,14 @@ export default function StickyCard002() {
 
   return (
     <div ref={container} className="relative h-full w-full ">
-      <div className="flex h-screen w-full items-center justify-center p-5">
-        <div className="relative h-[90%] w-full max-w-6xl rounded-lg">
+      <div className="flex h-screen w-full items-center justify-center p-5 ">
+        <div className="relative h-[100%] w-full max-w-6xl rounded-lg overflow-hidden">
           {cards.map((card, i) => (
             <img
               key={card.id}
               src={card.image}
               alt={`Image ${card.id}`}
-              className="absolute h-full w-[120%] left-[-10%] md:w-[110%] md:left-[-5%] rounded-2xl object-cover"
+              className="absolute h-full w-[100%] left-[-10%] md:w-[110%] md:left-[-0%] rounded-2xl object-cover"
               ref={(el) => (imageRefs.current[i] = el)}
             />
           ))}

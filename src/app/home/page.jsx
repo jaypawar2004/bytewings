@@ -10,12 +10,12 @@ const page = () => {
         <h1
           className="text-4xl font-extrabold 
   bg-gradient-to-br from-green-400 via-pink-500 to-indigo-600 
-  bg-clip-text text-transparent font-primary"
+  bg-clip-text text-transparent"
         >
           Empowering Businesses with Next-Gen Digital Solutions
         </h1>
         <Magnet padding={50} disabled={false} magnetStrength={5}>
-          <button className="text-center text-white border-2 bg-gradient-to-r from-blue-500 to-purple-600 px-7 rounded mt-5 py-3">
+          <button className="text-center text-white border-2 bg-gradient-to-r from-blue-500 to-purple-600 px-7 rounded-[7px] mt-5 py-3">
             Get Start
           </button>
         </Magnet>

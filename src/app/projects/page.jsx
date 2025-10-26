@@ -21,7 +21,7 @@ const ProjectCard = ({ videoSrc, poster, title, desc }) => {
 
   return (
     <div
-      className="w-full h-[50vh] rounded-[10px] relative overflow-hidden group bg-black"
+      className="w-full h-[80vh] rounded-[10px] relative overflow-hidden group bg-black "
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
@@ -34,7 +34,7 @@ const ProjectCard = ({ videoSrc, poster, title, desc }) => {
         muted
         loop
         preload="metadata"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover "
         aria-hidden
       />
 
@@ -49,9 +49,9 @@ const ProjectCard = ({ videoSrc, poster, title, desc }) => {
 
 const page = () => {
   return (
-    <div className=" w-full">
-      <h1 className="text-8xl font-black py-16 text-center font-primary">PROJECTS</h1>
-      <div className="cards w-full p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div className=" w-full ">
+      <h1 className="text-8xl text-white font-black py-16 text-center">PROJECTS</h1>
+      <div className="cards w-full p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
         <ProjectCard
           videoSrc="https://cdn.prod.website-files.com/679cb8f2875d404c7de22f8a%2F67e4f53561d1b2ebf4d1850a_Atlantiser_showreel_website_home-transcode.mp4"
           poster="https://assets.awwwards.com/awards/images/2024/04/galleries-slideshows_collection.jpg"

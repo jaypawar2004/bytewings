@@ -47,3 +47,225 @@
     box-shadow: 0 0 0 4px rgba(59,130,246,0.5);
   }
 }
+
+
+
+@font-face {
+  font-family: "CustomFont";
+  src: url("../assets/fonts/65de01ff0481afd740fe93f1_Season.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Lenis styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1e1e1c;
+  overflow-x: hidden;
+  font-family: "CustomFont", sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5vw 5vw;
+}
+.nav-link {
+  text-decoration: none;
+  color: aliceblue;
+}
+.center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.logo {
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: none;
+}
+.hero-section h1 {
+  font-size: 17vw;
+  line-height: 0.8;
+  color: aliceblue;
+  width: 100%;
+  font-weight: 200;
+}
+.hero-section h1:nth-child(2) {
+  text-align: right;
+}
+
+/* Mouse Flow */
+.mouse-flow {
+  position: relative;
+  font-size: 1vw;
+  color: #fff;
+  text-align: center;
+}
+.mouse-flow h6 {
+  position: fixed;
+  pointer-events: none;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+.mouse-flow h6:nth-child(2) {
+  transform: translateY(100%);
+}
+.mouse-flow h6:nth-child(3) {
+  transform: translateY(200%);
+}
+.mouse-flow h6:nth-child(4) {
+  transform: translateY(300%);
+}
+
+/* Split Section */
+.split-section {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+.left-section {
+  width: 35%;
+}
+.right-section {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20vh;
+}
+.right-section h2 {
+  font-size: 5rem;
+  opacity: 0.1;
+  color: #fff;
+  transition: 0.3s;
+}
+.right-section h2:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Image hover box */
+/* .img-div-sec {
+  display: none;
+  position: fixed;
+  width: 30%;
+  left: 3%;
+  height: 35%;
+  transform: translate(0%, -50%);
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+.img-container {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+} */
+
+.img-div-sec {
+  position: fixed;
+  transform: translate(0%, -50%);
+  z-index: 100;
+}
+
+.img-container {
+  width: 500px;
+  height: 300px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+/* New section (About / Footer) */
+.new-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0vh;
+  margin-top: 20vh;
+}
+.big-hello {
+  font-size: 16vw;
+  color: #fff;
+  font-weight: 200;
+}
+.intro-text {
+  font-size: 5vw;
+  color: white;
+  text-align: center;
+  font-weight: 200;
+}
+.new-section p {
+  color: #fff;
+  width: 70%;
+  font-size: 3vw;
+  text-align: center;
+}
+
+/* Scroll Section */
+.scroll-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.scroll-content h3 {
+  display: inline-block;
+  font-size: 4vw;
+  color: #fff;
+  margin-right: 50px;
+}
+
+/* Footer */
+.footer .intro-text a {
+  font-size: 4vw;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 799px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  .split-section {
+    flex-direction: column;
+  }
+  .big-hello {
+    font-size: 3rem;
+  }
+}
+

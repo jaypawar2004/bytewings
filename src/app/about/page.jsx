@@ -36,6 +36,59 @@ function Reveal({ children, className = "" }) {
   );
 }
 
+/* Counter: animates from 0 to `end` when it enters the viewport */
+function Counter({ end = 0, prefix = "", suffix = "", duration = 1500, decimals = 0, className = "" }) {
+  const ref = useRef(null);
+  const [value, setValue] = useState(0);
+  const startedRef = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !startedRef.current) {
+            startedRef.current = true;
+            let startTime = null;
+            const startVal = 0;
+            const diff = end - startVal;
+            const step = (ts) => {
+              if (!startTime) startTime = ts;
+              const elapsed = ts - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const current = startVal + diff * progress;
+              setValue(Number(current.toFixed(decimals)));
+              if (progress < 1) {
+                requestAnimationFrame(step);
+              } else {
+                obs.unobserve(el);
+              }
+            };
+            requestAnimationFrame(step);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [end, duration, decimals]);
+
+  const formatted = new Intl.NumberFormat(undefined, {
+    maximumFractionDigits: decimals,
+  }).format(value);
+
+  return (
+    <div ref={ref} className={className}>
+      {prefix}
+      {formatted}
+      {suffix}
+    </div>
+  );
+}
+
 const services = [
   {
     id: "web",
@@ -102,7 +155,7 @@ const services = [
 
 export default function page() {
   return (
-    <main className="font-sans text-neutral-900">
+    <main className=" text-neutral-900">
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
@@ -216,15 +269,20 @@ export default function page() {
             <Reveal>
               <div className="flex justify-between gap-6">
                 <div className="text-center">
-                  <div className="text-4xl font-extrabold">+150</div>
+                  {/* Projects delivered: animate from 0 → 150 with '+' prefix */}
+                  <Counter end={150} prefix="+" duration={1600} className="text-4xl font-extrabold" />
                   <div className="text-sm text-neutral-300">Projects delivered</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-extrabold">+60%</div>
+                  {/* Average growth: animate 0 → 60 with '+' prefix and '%' suffix */}
+                  <Counter end={60} prefix="+" suffix="%" duration={1400} className="text-4xl font-extrabold" />
                   <div className="text-sm text-neutral-300">Average growth in 6 months</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-extrabold">24/7</div>
+                  {/* Support & monitoring: animate 0 → 24 and append "/7" */}
+                  <div className="text-4xl font-extrabold">
+                    <Counter end={24} suffix="/7" duration={1200} className="inline" />
+                  </div>
                   <div className="text-sm text-neutral-300">Support & monitoring</div>
                 </div>
               </div>
