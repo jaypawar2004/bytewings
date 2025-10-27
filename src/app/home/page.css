@@ -1,0 +1,13 @@
+@keyframes Spin {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(40px); /* distance upar move */
+  }
+  
+}
+
+.scroll{
+    animation: ease-in-out Spin 6s infinite;
+}

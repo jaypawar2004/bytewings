@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@material-tailwind/react": "^2.1.10",
     "@studio-freight/lenis": "^1.0.42",
     "@vercel/speed-insights": "^1.2.0",

@@ -76,6 +76,42 @@ const page = () => {
           title="Project 4"
           desc="Lorem ipsum dolor sit amet."
         />
+        <ProjectCard
+          videoSrc="/videos/Renu Minerals video.mp4"
+          poster="/photos/ProjectIMG7.png"
+          title="Project 5"
+          desc="Lorem ipsum dolor sit amet."
+        />
+        <ProjectCard
+          videoSrc="https://assets.awwwards.com/awards/element/2024/02/65dbb374a048d927192718.mp4"
+          poster="/photos/ProjectIMG8.png"
+          title="Project 6"
+          desc="Lorem ipsum dolor sit amet."
+        />
+        <ProjectCard
+          videoSrc="https://assets.awwwards.com/awards/element/2024/02/65dbb374a048d927192718.mp4"
+          poster="https://assets.awwwards.com/awards/images/2024/04/tta.jpg"
+          title="Project 7"
+          desc="Lorem ipsum dolor sit amet."
+        />
+        <ProjectCard
+          videoSrc="https://assets.awwwards.com/awards/element/2024/02/65dbb374a048d927192718.mp4"
+          poster="https://assets.awwwards.com/awards/images/2024/04/tta.jpg"
+          title="Project 8"
+          desc="Lorem ipsum dolor sit amet."
+        />
+        <ProjectCard
+          videoSrc="https://assets.awwwards.com/awards/element/2024/02/65dbb374a048d927192718.mp4"
+          poster="https://assets.awwwards.com/awards/images/2024/04/tta.jpg"
+          title="Project 9"
+          desc="Lorem ipsum dolor sit amet."
+        />
+        <ProjectCard
+          videoSrc="https://assets.awwwards.com/awards/element/2024/02/65dbb374a048d927192718.mp4"
+          poster="https://assets.awwwards.com/awards/images/2024/04/tta.jpg"
+          title="Project 10"
+          desc="Lorem ipsum dolor sit amet."
+        />
       </div>
     </div>
   );

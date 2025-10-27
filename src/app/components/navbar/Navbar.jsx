@@ -169,7 +169,7 @@ const Navbar = () => {
           <img
             src={logo.src}
             alt="Logo"
-            className="h-16 w-auto"
+            className="h-16 w-auto relative"
           />
         </Link>
 

@@ -8,8 +8,8 @@ const page = () => {
     <div className="w-full h-screen relative">
       <div className="absolute text-center z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <h1
-          className="text-4xl font-extrabold 
-  bg-gradient-to-br from-green-400 via-pink-500 to-indigo-600 
+          className="text-6xl font-extrabold 
+  bg-gradient-to-br from-green-400 via-pink-500 to-indigo-600 relative z-50
   bg-clip-text text-transparent"
         >
           Empowering Businesses with Next-Gen Digital Solutions
@@ -19,6 +19,10 @@ const page = () => {
             Get Start
           </button>
         </Magnet>
+
+        <h4 className="scroll spin text-black absolute -bottom-[100%] inset-x-0 mx-auto -translate-y-1/2 text-center h-[80px] flex items-center justify-center rounded-full border w-[80px] font-semibold border-black">
+          Scroll
+        </h4>
       </div>
       <div className="w-full flex relative">
         <div

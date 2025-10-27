@@ -12,7 +12,7 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: 'Neha Sharma',
+    name: 'Manish Sharma',
     role: 'CTO',
     bio: 'Builds reliable systems and leads the engineering efforts.',
     skills: ['React', 'Node.js', 'Architecture'],
@@ -20,10 +20,10 @@ const teamMembers = [
   },
   {
     id: 3,
-    name: 'Rohit Gupta',
-    role: 'Lead Designer',
-    bio: 'Designs intuitive interfaces and brand experiences.',
-    skills: ['UI/UX', 'Figma', 'Branding'],
+    name: 'Abhishek',
+    role: 'CMO',
+    bio: 'Create the overall marketing plan aligned with business goals.',
+    skills: ['Brand Management', 'Product Marketing', 'Sales Alignment'],
     photo: 'https://i.pravatar.cc/300?img=15'
   },
   {
