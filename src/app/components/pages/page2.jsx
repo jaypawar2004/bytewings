@@ -3,7 +3,7 @@ import ScrollReveal from '../../../components/ScrollReveal';
 
 const page2 = () => {
   return (
-    <div className=" w-[70vw] m-auto h-[60vh] text-2xl font-primary">
+    <div className=" lg:w-[70vw] m-auto lg:h-[60vh] text-2xl px-5 font-primary">
       
 <ScrollReveal
   baseOpacity={0}

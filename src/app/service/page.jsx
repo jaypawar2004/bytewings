@@ -1,217 +1,3 @@
-// "use client";
-
-// import { useEffect, useRef } from "react";
-// import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import Lenis from "@studio-freight/lenis";
-
-// export default function Home() {
-//   const imgDivRef = useRef(null);
-//   const imgContainerRef = useRef(null);
-
-//   useEffect(() => {
-//     // 🔹 Lenis Smooth Scroll
-//     const lenis = new Lenis();
-//     function raf(time) {
-//       lenis.raf(time);
-//       requestAnimationFrame(raf);
-//     }
-//     requestAnimationFrame(raf);
-
-//     // 🔹 GSAP setup
-//     gsap.registerPlugin(ScrollTrigger);
-
-//     // 🔹 Scroll animations
-//     gsap.to(".about", {
-//       gap: "20vh",
-//       ease: "none",
-//       scrollTrigger: {
-//         trigger: ".about",
-//         start: "top bottom",
-//         end: "50% 0%",
-//         scrub: true,
-//       },
-//     });
-
-//     gsap.to(".footer", {
-//       gap: "9vh",
-//       ease: "none",
-//       scrollTrigger: {
-//         trigger: ".footer",
-//         start: "top 50%",
-//         end: "50% 0%",
-//         scrub: true,
-//       },
-//     });
-
-//     // 🔹 Hero scroll movement
-//     const heroHeadings = document.querySelectorAll(".hero-section h1");
-//     heroHeadings.forEach((h1, i) => {
-//       gsap.to(h1, {
-//         x: i % 2 === 0 ? "10%" : "-10%",
-//         scrollTrigger: {
-//           trigger: ".hero-section",
-//           start: "top top",
-//           end: "bottom top",
-//           scrub: true,
-//         },
-//       });
-//     });
-
-//     // 🔹 Infinite scroll animation
-//     const scrollContent = document.querySelector(".scroll-content");
-//     if (scrollContent) {
-//       const scrollWidth = scrollContent.offsetWidth;
-//       const clone = scrollContent.cloneNode(true);
-//       scrollContent.parentNode.appendChild(clone);
-
-//       gsap.to(".scroll-content", {
-//         x: -scrollWidth,
-//         ease: "none",
-//         duration: 30,
-//         repeat: -1,
-//         modifiers: {
-//           x: gsap.utils.unitize((x) => parseFloat(x) % scrollWidth),
-//         },
-//       });
-//     }
-
-//     // 🔹 Image hover + cursor follow
-//     const imgDiv = imgDivRef.current;
-//     const imgContainer = imgContainerRef.current;
-//     const h2Elements = document.querySelectorAll(".right-section h2");
-//     const imageArray = [
-//       "https://images.unsplash.com/photo-1738959869838-13760941f301?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1932",
-//       "/images/img2.jpg",
-//       "/images/img3.jpg",
-//       "/images/img4.jpg",
-//       "/images/img5.jpg",
-//       "/images/img6.jpg",
-//       "/images/img7.jpg",
-//     ];
-
-//     h2Elements.forEach((h2, index) => {
-//       h2.addEventListener("mouseenter", () => {
-//         const imagePath = imageArray[index % imageArray.length];
-//         imgContainer.style.backgroundImage = `url(${imagePath})`;
-//         imgDiv.style.display = "block";
-//         gsap.to(imgDiv, { opacity: 1, duration: 0.3 });
-//       });
-
-//       h2.addEventListener("mouseleave", () => {
-//         gsap.to(imgDiv, { opacity: 0, duration: 0.3, onComplete: () => {
-//           imgDiv.style.display = "none";
-//         }});
-//       });
-//     });
-
-//     // 🔹 Mouse follow (smooth motion)
-//     const pos = { x: 0, y: 0 };
-//     const mouse = { x: 0, y: 0 };
-//     const speed = 0.2; // lerp speed
-
-//     const handleMouseMove = (e) => {
-//       mouse.x = e.clientX;
-//       mouse.y = e.clientY;
-//     };
-
-//     const animate = () => {
-//       pos.x += (mouse.x - pos.x) * speed;
-//       pos.y += (mouse.y - pos.y) * speed;
-//       imgDiv.style.transform = `translate3d(${pos.x + 30}px, ${pos.y}px, 0)`;
-//       requestAnimationFrame(animate);
-//     };
-
-//     window.addEventListener("mousemove", handleMouseMove);
-//     animate();
-
-//     return () => {
-//       window.removeEventListener("mousemove", handleMouseMove);
-//     };
-//   }, []);
-
-//   return (
-//     <main>
-//       <nav className="navbar">
-//         <a href="#" className="nav-link left">Work</a>
-//         <a href="#" className="nav-link center logo">Logo</a>
-//         <a href="#" className="nav-link right">About</a>
-//       </nav>
-
-//       <div className="hero-section">
-//         <h1>BYTEWINGS</h1>
-//         <h1>TECHNOLOGY</h1>
-//         <h1>SERVICE</h1>
-//         <div className="mouse-flow">
-//           <h6>Hello!</h6>
-//           <h6>I'm a creative website</h6>
-//           <h6>developer</h6>
-//           <h6>based in India</h6>
-//         </div>
-//       </div>
-
-//       <div className="split-section">
-//         <div className="left-section">
-//           <div
-//             ref={imgDivRef}
-//             className="img-div-sec fixed hidden pointer-events-none z-50 opacity-0"
-//           >
-//             <div
-//               ref={imgContainerRef}
-//               className="img-container w-[320px] h-[220px] bg-cover bg-center rounded-xl shadow-xl"
-//             ></div>
-//           </div>
-//         </div>
-
-//         <div className="right-section">
-//           {[
-//             "WEB DEVELOPMENT",
-//             "APP DEVELOPMENT",
-//             "META ADVERTISING",
-//             "GOOGLE ADVERTISING",
-//             "AI AGENTS",
-//             "CHATBOT DEVELOPMENT",
-//             "CLOUD SERVICES",
-//           ].map((text, i) => (
-//             <h2 key={i} className="cursor-pointer hover:text-gray-400 transition-all">
-//               {text.split(" ")[0]}
-//               <sup>{text.split(" ")[1]}</sup>
-//             </h2>
-//           ))}
-//         </div>
-//       </div>
-
-//       <div className="new-section about">
-//         <h1 className="big-hello">HELLO!</h1>
-//         <h4 className="intro-text">
-//           I'M A GRAPHIC<br />DESIGNER<br />BASED IN PARIS
-//         </h4>
-//         <p>I am an artistic director who graduated from Penninghen in 2018...</p>
-//       </div>
-
-//       <div className="scroll-section">
-//         <div className="scroll-content">
-//           <h3>LOCOTYPE</h3>
-//           <h3>WEBDESIGN</h3>
-//           <h3>PRINT</h3>
-//           <h3>SOCIALS</h3>
-//           <h3>BRANDING</h3>
-//         </div>
-//       </div>
-
-//       <div className="new-section footer">
-//         <h1 className="big-hello">LET'S TALK</h1>
-//         <h4 className="intro-text">
-//           <a href="#">EMAIL</a>
-//           <a href="#">INSTAGRAM</a>
-//           <a href="#">LINKEDIN</a>
-//           <a href="#">YOUTUBE</a>
-//         </h4>
-//         <p>©2024 | Created by Gravity Coding</p>
-//       </div>
-//     </main>
-//   );
-// }
 "use client";
 import React, { useEffect } from "react";
 import gsap from "gsap";
@@ -220,7 +6,10 @@ import Lenis from "@studio-freight/lenis";
 import "./HomePage.css";
 
 gsap.registerPlugin(ScrollTrigger);
-
+const email = "infobytewings@gmail.com"; // Put your email here
+const subject = "ByteWings Technology";
+const body = "Hello ByteWings Team,\n\nI am interested in your services...\n";
+const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 const imageArray = [
 
   'https://images.unsplash.com/photo-1724765623733-68ef3080a5c3?q=80&w=2470&auto=format&fit=crop&ixlib-rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -260,7 +49,7 @@ function page() {
     }
     requestAnimationFrame(raf);
 
-    // 2. GSAP Animations (SAHI KAR DIYA)
+    // 2. GSAP Animations (DONE)
     gsap.to('.about', {
       gap: "20vh",
       ease: 'none',
@@ -295,12 +84,12 @@ function page() {
       scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: true }
    });
 
-    // 3. Image Hover Effect (SAHI KAR DIYA)
+    // 3. Image Hover Effect (DONE)
     const imgDiv = document.querySelector('.img-div-sec');
     const imgContainer = document.querySelector('.img-container');
     const h2Elements = document.querySelectorAll('.right-section h2');
     
-    // Event listeners ko functions bana lete hain taaki unhe remove kar sakein
+    // Create named listener functions so we can remove them later
     const h2EnterListeners = [];
     const h2LeaveListeners = [];
 
@@ -321,7 +110,7 @@ function page() {
       h2.addEventListener('mouseleave', leaveFunc);
     });
 
-    // 4. Image Parallax Mouse Move (SAHI KAR DIYA)
+    // 4. Image Parallax Mouse Move (DONE)
     const handleImgParallax = (dets) => {
       const reductionFactor = 0.3;
       const windowHeight = window.innerHeight;
@@ -330,14 +119,14 @@ function page() {
       const reducedOffset = mouseOffsetFromCenter * reductionFactor;
       const newY = centerY + reducedOffset;
       
-      // Check karein ki imgDiv hai ya nahi
+      // Ensure imgDiv exists before updating
       if (imgDiv) {
         imgDiv.style.top = `${newY}px`;
       }
     };
     document.body.addEventListener('mousemove', handleImgParallax);
 
-    // 5. Infinite Scroll Text (SAHI KAR DIYA)
+    // 5. Infinite Scroll Text (DONE)
     function setupInfiniteScroll() {
       const scrollContent = document.querySelector('.scroll-content');
       if (scrollContent) {
@@ -358,7 +147,7 @@ function page() {
     }
     setupInfiniteScroll();
 
-    // 6. Mouse Flow Text Effect (YE NAYA WALA HAI)
+    // 6. Mouse Flow Text Effect (NEW)
     const flowTexts = document.querySelectorAll(".mouse-flow h6");
     const quickToTopFns = [];
     const quickToLeftFns = [];
@@ -384,22 +173,22 @@ function page() {
     document.body.addEventListener('mousemove', handleMouseFlow);
     
     
-    // --- React Cleanup Function (SAHI KAR DIYA) ---
+    // --- React Cleanup Function (DONE) ---
     return () => {
       lenis.destroy();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      gsap.killTweensOf('.scroll-content'); // Infinite scroll ko bhi kill karein
+      gsap.killTweensOf('.scroll-content'); // Also kill infinite scroll
       document.body.removeEventListener('mousemove', handleImgParallax);
       document.body.removeEventListener('mousemove', handleMouseFlow);
       
-      // h2 event listeners ko bhi remove karein
+      // Remove h2 event listeners as well
       h2Elements.forEach((h2, index) => {
         h2.removeEventListener('mouseenter', h2EnterListeners[index]);
         h2.removeEventListener('mouseleave', h2LeaveListeners[index]);
       });
     };
 
-  }, []); // Khali array [] ka matlab ye effect bas ek baar chalega // JSX (HTML) - (Koi Badlav Nahi)
+  }, []); // Empty array [] means this effect runs only once // JSX (HTML) - (No changes)
 
   return (
     <>
@@ -418,19 +207,19 @@ function page() {
       </nav>
 
       <main>
-        <div className="hero-section">
+        <div className="hero-section ">
           <h1>BYTEWINGS</h1>
 
-          <h1>TECH</h1>
+          <h1 className="tech ">TECH</h1>
 
           <h1>NOLOGY</h1>
 
           <div className="mouse-flow">
             <h6>Hello!</h6>
 
-            <h6>I'm a creative website</h6>
+            <h6>We are a creative website</h6>
 
-            <h6>developer</h6>
+            <h6> development Agency</h6>
 
             <h6>based in India</h6>
           </div>
@@ -485,7 +274,7 @@ function page() {
         <div className="new-section about">
           <h1 className="big-hello">HELLO!</h1>
 
-          <h1 className="big-hello">WELLCOME!</h1>
+          <h1 className="big-hello">WELCOME!</h1>
 
           <h4 className="intro-text">
             ByteWings
@@ -533,15 +322,19 @@ function page() {
 
             <h3>BRANDING</h3>
 
-            {/* Clone wala part JS se handle ho jayega */}
+            {/* Clone handled by JS */}
           </div>
         </div>
 
         <div className="new-section footer">
-          <h1 className="big-hello">LET'S TALK</h1>
+          <h1 className="Letstalk text-white text-9xl ">LET'S TALK</h1>
 
           <h4 className="intro-text">
-            <a href="https://www.gmail.com/">EMAIL</a>
+            <a 
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=infobytewings@gmail.com&su=Website_Inquiry&body=Hello_ByteWings_Team,"
+  target="_blank" 
+  rel="noopener noreferrer"
+>EMAIL</a>
 
             <br />
 

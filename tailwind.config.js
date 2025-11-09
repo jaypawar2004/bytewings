@@ -31,7 +31,6 @@ module.exports = {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",
         },
-        // 🛑 Galti yahaan thi, maine fontFamily ko yahaan se hata diya hai
         secondary: {
           DEFAULT: "var(--secondary)",
           foreground: "var(--secondary-foreground)",
@@ -65,11 +64,10 @@ module.exports = {
         }
       },
       
-      // ✅ fontFamily ko yahaan 'colors' ke bahar hona chahiye
       fontFamily: {
         primary: ["var(--font-head)",
         "var(--font-head2)"
-        ], // Aapne naam 'primary' rakha
+        ],
       },
 
       borderRadius: {
@@ -77,7 +75,26 @@ module.exports = {
         md: "var(--radius-md)",
         sm: "var(--radius-sm)",
         xl: "var(--radius-xl)"
-      }
+      },
+
+      // --- ✅ Yahaan add kiya hai ---
+      keyframes: {
+        // Dheere se upar-neeche hone wala animation
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-15px)" },
+        },
+        // Ulta animation, thoda alag timing ke saath
+        floatReverse: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(15px)" },
+        },
+      },
+      animation: {
+        float: "float 6s ease-in-out infinite",
+        floatReverse: "floatReverse 8s ease-in-out infinite",
+      },
+      // --- ✅ Yahaan tak ---
     },
   },
   plugins: [

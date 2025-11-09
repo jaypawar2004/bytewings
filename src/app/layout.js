@@ -11,6 +11,7 @@ import Footer from "./components/footer/Footer";
 import NextTopLoader from 'nextjs-toploader';
 import AppWrapper from "./components/AppWrapper";
 import Stairs from "./components/common/Stairs";
+import Analytics from "./components/Analytics";
 
 const myFont = localFont({
   src: '../assets/fonts/PPWoodland-Regular.ttf',
@@ -67,7 +68,7 @@ export default function RootLayout({ children }) {
           
           <Navbar />
 <Stairs>
-
+<Analytics />
           {children}
 </Stairs>
           

@@ -16,7 +16,7 @@ const teamMembers = [
     role: 'CTO',
     bio: 'Builds reliable systems and leads the engineering efforts.',
     skills: ['React', 'Node.js', 'Architecture'],
-    photo: 'https://i.pravatar.cc/300?img=5'
+    photo: 'https://i.pravatar.cc/300?img'
   },
   {
     id: 3,

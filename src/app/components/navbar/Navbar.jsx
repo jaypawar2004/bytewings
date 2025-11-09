@@ -118,17 +118,28 @@
 // export default Navbar;
 
 
-
 "use client";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import logo from "../../../../public/photos/PNG LOGO.png";
 import Magnet from "../../../components/Magnet";
+
+// 1. Pathname hook ko import karo
+import { usePathname } from "next/navigation";
+
+// 2. Dono logo import karo (safed aur kaala)
+import logoWhite from "../../../../public/photos/ByteWings White.png";
+// !!! YAHAN APNE BLACK LOGO KA SAHI PATH DAALO !!!
+import logoBlack from "../../../../public/photos/ByteWings Black.png"; // Isse change kar lena
 
 const Navbar = () => {
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const lastScroll = useRef(0);
+
+  // 3. Saara logic function ke ANDAR rakho
+  const pathname = usePathname();
+  const specialPages = ["/","/contact"]; // Apne hisaab se path add karein
+  const isSpecialPage = specialPages.includes(pathname);
 
   // Scroll-to-hide logic (Yeh JavaScript zaroori hai)
   useEffect(() => {
@@ -157,27 +168,27 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`w-[100vw] h-[70px] z-50 flex items-center px-5 justify-between backdrop-blur-xl text-white fixed top-0 z-60 transform transition-transform duration-300 ease-in-out shadow-xl mix-blend-difference
-          ${hidden ? "-translate-y-full" : "translate-y-0"}`}
-        // Note: `bg-white/` yahan se hata diya gaya hai
+        className={`w-[100vw] h-[70px] z-[999] flex items-center px-5 justify-between backdrop-blur-xl fixed top-0 z-60 transform transition-transform duration-300 ease-in-out shadow-xl 
+        ${hidden ? "-translate-y-full" : "translate-y-0"}
+        ${isSpecialPage ? "text-black" : "text-white"}`} // <-- Yeh Sahi Hai
       >
-        <Link href="/">
-          {/* Blend mode logo par laga diya hai. 
-            NOTE: Yeh tabhi sahi kaam karega agar aapka 'PNG LOGO.png' 
-            safed (white) color ka hai.
-          */}
+        {/* 4. LOGO KO BHI CONDITIONAL BANA DIYA */}
+        <Link className="+" href="/">
           <img
-            src={logo.src}
+            src={isSpecialPage ? logoBlack.src : logoWhite.src}
             alt="Logo"
-            className="h-16 w-auto relative"
+            className="h-16 rounded-full w-auto relative "
           />
         </Link>
 
         {/* desktop links */}
-        {/* Blend mode yahan nav container par laga diya hai */}
-        <nav className="hidden md:flex gap-10 text-sm items-center mix-blend-difference">
+        <nav
+          className={`hidden md:flex gap-10 text-sm items-center 
+          ${isSpecialPage ? "" : "mix-blend-difference"}`} // <-- Yeh Sahi Hai
+        >
           <Link href="/">
             <Magnet padding={50} disabled={false} magnetStrength={10}>
+              {/* 5. Yahan se extra blend mode hata diya */}
               <p>Home</p>
             </Magnet>
           </Link>
@@ -186,7 +197,6 @@ const Navbar = () => {
               <p>Projects</p>
             </Magnet>
           </Link>
-
           <Link href="/team">
             <Magnet padding={50} disabled={false} magnetStrength={5}>
               <p>Team</p>
@@ -210,25 +220,35 @@ const Navbar = () => {
         </nav>
 
         {/* mobile hamburger */}
-        {/* Blend mode button par bhi laga diya hai */}
         <button
-          className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 mix-blend-difference"
+          className={`md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 
+            ${isSpecialPage ? "" : "mix-blend-difference"}`} // <-- Blend mode yahan bhi conditional
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((s) => !s)}
         >
-          {/* Icon ki lines ko 'bg-white' kar diya hai taaki woh invert ho sakein */}
-          <span className="block w-6 h-0.5 bg-white mb-1"></span>
-          <span className="block w-6 h-0.5 bg-white mb-1"></span>
-          <span className="block w-6 h-0.5 bg-white"></span>
+          {/* 6. ICON KI LINES BHI CONDITIONAL KAR DI */}
+          <span
+            className={`block w-6 h-0.5 mb-1 ${
+              isSpecialPage ? "bg-black" : "bg-white"
+            }`}
+          ></span>
+          <span
+            className={`block w-6 h-0.5 mb-1 ${
+              isSpecialPage ? "bg-black" : "bg-white"
+            }`}
+          ></span>
+          <span
+            className={`block w-6 h-0.5 ${
+              isSpecialPage ? "bg-black" : "bg-white"
+            }`}
+          ></span>
         </button>
       </div>
 
       {/* mobile menu (slides from top under navbar) */}
-      {/* Is menu par blend mode nahi hai, yeh normal hai */}
       {open && (
         <div className="md:hidden absolute top-[70px] left-0 right-0 bg-white/90 backdrop-blur-sm shadow-lg z-50">
-          {/* Yahan 'text-black' add kiya hai taaki links dikhein */}
           <div className="flex flex-col px-5 py-4 gap-3 text-black">
             <Link href="/" onClick={() => setOpen(false)}>
               Home
@@ -236,7 +256,14 @@ const Navbar = () => {
             <Link href="/about" onClick={() => setOpen(false)}>
               About
             </Link>
-            <Link href="/store" onClick={() => setOpen(false)}>
+            <Link href="/team" onClick={() => setOpen(false)}>
+              Team
+            </Link>
+            <Link href="/service" onClick={() => setOpen(false)}>
+              Service
+            </Link>
+            {/* Note: Aapne yahan '/store' likha tha, maine '/projects' kar diya hai */}
+            <Link href="/projects" onClick={() => setOpen(false)}>
               Projects
             </Link>
             <Link href="/contact" onClick={() => setOpen(false)}>

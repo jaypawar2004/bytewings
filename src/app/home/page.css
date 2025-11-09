@@ -1,13 +1,62 @@
-@keyframes Spin {
+/* @keyframes Spin {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(40px); /* distance upar move */
+    transform: translateY(40px); 
   }
   
 }
 
 .scroll{
     animation: ease-in-out Spin 6s infinite;
+}
+
+
+@media (max-width: 600px) {
+    .frontGallery{
+    width: 100% !important;
+    height: 80%;
+    object-fit: cover;
+    object-position: center;
+    }
+    
+} */
+
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slower {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes spin-slowest {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 50s linear infinite;
+}
+.animate-spin-slower {
+  animation: spin-slower 80s linear infinite;
+}
+.animate-spin-slowest {
+  animation: spin-slowest 120s linear infinite;
 }

@@ -42,7 +42,6 @@ export default function StickyCard002() {
         end: `+=${window.innerHeight * (totalCards - 1)}`,
         pin: true,
         scrub: 0.5,
-        
       },
     });
 
@@ -63,7 +62,17 @@ export default function StickyCard002() {
       );
     }
 
+    // Recompute end on resize so pin length matches new viewport height (keeps desktop behavior same)
+    const handleResize = () => {
+      if (scrollTimeline && scrollTimeline.scrollTrigger) {
+        scrollTimeline.scrollTrigger.end = `+=${window.innerHeight * (totalCards - 1)}`;
+        ScrollTrigger.refresh();
+      }
+    };
+    window.addEventListener("resize", handleResize);
+
     return () => {
+      window.removeEventListener("resize", handleResize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       lenis.destroy();
     };
@@ -78,15 +87,18 @@ export default function StickyCard002() {
   ];
 
   return (
-    <div ref={container} className="relative h-full w-full ">
-      <div className="flex h-screen w-full items-center justify-center p-5 ">
-        <div className="relative h-[100%] w-full max-w-6xl rounded-lg overflow-hidden">
+    <div ref={container} className="relative w-full">
+      <div className="flex min-h-screen md:h-screen items-center justify-center px-4 md:px-6 lg:p-5">
+        <div className="relative w-full max-w-[1200px] h-[70vh] md:h-screen rounded-lg overflow-hidden mx-auto">
           {cards.map((card, i) => (
             <img
               key={card.id}
               src={card.image}
               alt={`Image ${card.id}`}
-              className="absolute h-full w-[100%] left-[-10%] md:w-[110%] md:left-[-0%] rounded-2xl object-cover"
+              // Responsive classes:
+              // - mobile: full width, left 0, cover and slightly shorter height to avoid huge vertical overflow
+              // - md/lg: keep original desktop offsets and sizing
+              className="absolute inset-0 w-full h-full left-0 md:left-[-10%] md:w-[110%] lg:left-[-10%] lg:w-[110%] rounded-2xl object-cover"
               ref={(el) => (imageRefs.current[i] = el)}
             />
           ))}
