@@ -53,13 +53,10 @@ export default function CommunityHero() {
       {/* 3. Central Content */}
       <div className="relative z-10 text-center max-w-xl mx-auto">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-primary mb-6">
-          Community to grow
-          <br />
-          up your skills
+           Empowering Businesses Through<br /> Creativity and Technology
         </h1>
         <p className="text-base sm:text-lg text-gray-600 mb-10 max-w-lg mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+         At ByteWings, we combine innovation, strategy, and design to deliver impactful digital experiences. Our team specializes in building high-performing websites, custom web applications, and marketing campaigns that help businesses stand out in the digital world.
         </p>
         
         {/* ✅ YAHAN BADA CHANGE HAI: Button ko Form banaya hai */}

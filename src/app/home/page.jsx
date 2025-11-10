@@ -103,7 +103,7 @@ export default function Home() {
 
       {/* Content */}
       <h1 className="text-3xl md:text-5xl font-bold text-black mb-4 leading-tight">
-        Join a Community That Helps You <br /> Grow & Sharpen Your Skills 🚀
+        Empowering Businesses Through<br /> Creativity and Technology🚀
       </h1>
       <p className="text-gray-600 max-w-xl mb-6">
         Connect with talented developers, designers, and creators. Share

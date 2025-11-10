@@ -13,16 +13,21 @@ const teamMembers = [
   {
     name: "Jay Pawar", // Aapka naam
     role: "Founder & CEO",
+    href: "https://www.linkedin.com/in/jay-pawar-b68589273/",
+    href2: "https://x.com/JAY_Pawar_20",
     img: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop", // Placeholder
   },
   {
     name: "Manish Sharma",
     role: "CTO",
+   
     img: "https://plus.unsplash.com/premium_photo-1727942416727-9f16462ef11b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1935", // Placeholder
   },
   {
     name: "Abhishek",
     role: "CMO",
+     href: "https://www.linkedin.com/in/abhishek-gayakwad-44b769222?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    href2: "https://x.com/AbhishekGayakwad",
     img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974", // Placeholder
   },
 ];
@@ -58,10 +63,10 @@ export default function TeamSection() {
               </h3>
               <p className="text-teal-600 font-medium mb-4">{member.role}</p>
               <div className="flex justify-center space-x-4">
-                <a href="#" className="text-gray-500 hover:text-gray-800">
+                <a href={member.href} _target="_blank"  className="text-gray-500 hover:text-gray-800">
                   <Linkedin size={20} />
                 </a>
-                <a href="#" className="text-gray-500 hover:text-gray-800">
+                <a href={member.href2}className="text-gray-500 hover:text-gray-800">
                   <Twitter size={20} />
                 </a>
               </div>
