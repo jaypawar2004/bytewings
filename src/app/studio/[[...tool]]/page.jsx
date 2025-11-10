@@ -15,11 +15,14 @@
 // src/app/studio/[[...tool]]/page.jsx
 // src/app/studio/[[...tool]]/page.jsx
 // src/app/studio/[[...tool]]/page.jsx
-'use client'
 // src/app/studio/[[...tool]]/page.jsx
-import { NextStudio } from 'next-sanity/studio'
-import config from '@/sanity.config'
+'use client'
+
+import { Studio } from 'next-sanity' 
+// ✅ Naye alias ka istemal karein
+import config from '@/sanity-config' 
+
 
 export default function StudioPage() {
-  return <NextStudio config={config} />
+  return <Studio config={config} />
 }

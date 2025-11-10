@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      // ✅ YEH NAYI LINE ADD KAREIN
+      "@/sanity-config": ["./sanity.config.js"] 
     }
   }
 }
