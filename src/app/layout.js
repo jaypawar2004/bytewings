@@ -77,7 +77,7 @@ export const metadata = {
     creator: "@bytewings", // optional Twitter handle
   },
   icons: {
-    icon: "/photos/Logo Without text.png",
+    icon: "/photos/ByteWings White.png",
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
