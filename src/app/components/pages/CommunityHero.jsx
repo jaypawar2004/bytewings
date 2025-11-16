@@ -51,11 +51,11 @@ export default function CommunityHero() {
       <div className="absolute z-[-1] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] sm:w-[100vw] sm:h-[100vw] md:w-[60rem] md:h-[60rem] border border-gray-300/40 rounded-full"></div>
 
       {/* 3. Central Content */}
-      <div className="relative z-10 text-center max-w-xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-primary mb-6">
+      <div className="relative z-10 text-center max-w-4xl mx-auto">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-primary mb-6">
            Empowering Businesses Through<br /> Creativity and Technology
         </h1>
-        <p className="text-base sm:text-lg text-gray-600 mb-10 max-w-lg mx-auto">
+        <p className="text-base sm:text-lg text-gray-600 mb-10 max-w-3xl mx-auto">
          At ByteWings, we combine innovation, strategy, and design to deliver impactful digital experiences. Our team specializes in building high-performing websites, custom web applications, and marketing campaigns that help businesses stand out in the digital world.
         </p>
         

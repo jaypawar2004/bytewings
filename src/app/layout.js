@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import Script from "next/script";
 import "./globals.css";
 
@@ -11,24 +12,24 @@ import Stairs from "./components/common/Stairs";
 import Analytics from "./components/Analytics";
 
 // ✅ Local Fonts
-const myFont = localFont({
-  src: "../assets/fonts/PPWoodland-Regular.ttf",
-  variable: "--font-head",
-});
-const myFontSecond = localFont({
-  src: "../assets/fonts/PPWoodland-Regular.ttf",
-  variable: "--font-head2",
-});
+// const myFont = localFont({
+//   src: "../assets/fonts/PPWoodland-Regular.ttf",
+//   variable: "--font-head",
+// });
+// const myFontSecond = localFont({
+//   src: "../assets/fonts/PPWoodland-Regular.ttf",
+//   variable: "--font-head2",
+// });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 // ✅ SEO + Metadata
 export const metadata = {
@@ -130,7 +131,7 @@ export default function RootLayout({ children }) {
       </head>
 
       <body
-        className={`${myFont.variable} ${myFontSecond.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`antialiased`}
       >
         {/* Top progress bar */}
         <NextTopLoader

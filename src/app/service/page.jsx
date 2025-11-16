@@ -4,7 +4,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
 import "./HomePage.css";
+import localFont  from "next/font/local";
 
+
+const myLocalFont = localFont({
+  src: "../../../public/fonts/65de01ff0481afd740fe93f1_Season.woff2"
+})
 gsap.registerPlugin(ScrollTrigger);
 const email = "infobytewings@gmail.com"; // Put your email here
 const subject = "ByteWings Technology";
@@ -191,7 +196,7 @@ function page() {
   }, []); // Empty array [] means this effect runs only once // JSX (HTML) - (No changes)
 
   return (
-    <>
+    <div className={myLocalFont.className}>
       <nav className="navbar">
         <a href="#" className="nav-link left">
           Work
@@ -207,7 +212,7 @@ function page() {
       </nav>
 
       <main>
-        <div className="hero-section ">
+        <div className="hero-section font-service">
           <h1>BYTEWINGS</h1>
 
           <h1 className="tech ">TECH</h1>
@@ -356,7 +361,7 @@ function page() {
           {/* <p>&#169;2024 | Created by Gravity Coding</p> */}
         </div>
       </main>
-    </>
+    </div>
   );
 }
 
