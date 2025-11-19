@@ -8,7 +8,7 @@ const teamMembers = [
     role: 'Founder & CEO',
     bio: 'Product visionary focused on growth, strategy and customer experience.',
     skills: ["Full Stack Developer",'Product', 'Strategy', 'Leadership'],
-    photo: 'https://images.unsplash.com/photo-1536303158031-c868b371399f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWFsZSUyMG1vZGVsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600'
+    photo: '/photos/my img.png'
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const teamMembers = [
     role: 'CMO',
     bio: 'Create the overall marketing plan aligned with business goals.',
     skills: ['Brand Management', 'Product Marketing', 'Sales Alignment'],
-    photo: 'https://i.pravatar.cc/300?img=15'
+    photo: '/photos/AbhishekImg.jpeg'
   },
   {
     id: 4,
@@ -95,7 +95,7 @@ const page = () => {
     <div className='w-full bg-zinc-900 py-12 px-6'>
       <div className='max-w-6xl mx-auto'>
         <h1 className='text-white text-4xl font-semibold mb-6 mt-10'>Our Team</h1>
-        <p className='text-zinc-300 mb-8'>Click a card to see full details. Hover to see a tilt effect.</p>
+        {/* <p className='text-zinc-300 mb-8'>Click a card to see full details. Hover to see a tilt effect.</p> */}
 
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
           {teamMembers.map(member => (
