@@ -16,7 +16,7 @@ const teamMembers = [
     role: 'CTO',
     bio: 'Builds reliable systems and leads the engineering efforts.',
     skills: ['React', 'Node.js', 'Architecture'],
-    photo: 'https://i.pravatar.cc/300?img'
+    photo: '/photos/manishIMG.jpg'
   },
   {
     id: 3,
@@ -28,26 +28,26 @@ const teamMembers = [
   },
   {
     id: 4,
-    name: 'Priya Singh',
-    role: 'Frontend Engineer',
+    name: 'Vishal Kamdi',
+    role: 'Full Stack developer',
     bio: 'Implements accessible, high-performance frontends.',
-    skills: ['React', 'Tailwind', 'Testing'],
-    photo: 'https://i.pravatar.cc/300?img=20'
+    skills: ['React', 'Tailwind', 'Testing', 'backend', 'APIs', 'Databases',  'DevOps', 'CI/CD'],
+    photo: '/photos/VishalIMG.jpeg'
   },
   {
     id: 5,
-    name: 'Karan Mehta',
-    role: 'Backend Engineer',
-    bio: 'Works on APIs, databases and system reliability.',
-    skills: ['Node.js', 'Postgres', 'Docker'],
+    name: 'Hemant Mandal',
+    role: 'Video Editor & Animator',
+    bio: 'Creates engaging video content and animations.',
+    skills: ['Video Editing', 'Animation', 'Motion Graphics'],
     photo: 'https://i.pravatar.cc/300?img=30'
   },
   {
     id: 6,
-    name: 'Simran Kaur',
-    role: 'QA & Automation',
-    bio: 'Ensures quality with automated tests and CI practices.',
-    skills: ['Cypress', 'Jest', 'CI/CD'],
+    name: 'Afraz Raza',
+    role: 'UI/UX Designer',
+    bio: 'Designs user-friendly interfaces and experiences.',
+    skills: ['UI Design', 'UX Research', 'Prototyping'],
     photo: 'https://i.pravatar.cc/300?img=7'
   },
   {

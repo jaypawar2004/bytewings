@@ -114,7 +114,7 @@ const teamMembers = [
     href: "#", 
     href2: "#",
     // Example: If the file is public/images/manish.jpg
-    img: "/images/manish.jpg", // <--- Public Folder Path
+    img: "/photos/manishIMG.jpg", // <--- Public Folder Path
   },
   {
     name: "Abhishek",

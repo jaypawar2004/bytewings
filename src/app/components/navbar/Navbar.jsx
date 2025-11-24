@@ -117,30 +117,38 @@
 
 // export default Navbar;
 
-
 "use client";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import Magnet from "../../../components/Magnet";
-
-// 1. Pathname hook ko import karo
 import { usePathname } from "next/navigation";
 
-// 2. Dono logo import karo (safed aur kaala)
 import logoWhite from "../../../../public/photos/ByteWings White.png";
-// !!! YAHAN APNE BLACK LOGO KA SAHI PATH DAALO !!!
-import logoBlack from "../../../../public/photos/ByteWings Black.png"; // Isse change kar lena
+import logoBlack from "../../../../public/photos/ByteWings Black.png";
 
 const Navbar = () => {
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const lastScroll = useRef(0);
 
-  // 3. Saara logic function ke ANDAR rakho
   const pathname = usePathname();
-  const specialPages = ["/","/contact"]; // Apne hisaab se path add karein
-  const isSpecialPage = specialPages.includes(pathname);
 
+  // ⭐⭐ VERY IMPORTANT — hide navbar on landing page
+  const hideOnLanding =
+    pathname === "/landing/travel-marketing" ||      
+    pathname === "/landing" ||              
+    pathname === "/travel-agency-leads" ||  
+    pathname === "/travel-agency" ||        
+    pathname === "/bytewings-ads" ||        
+    pathname.startsWith("/landing-page") || 
+    pathname.startsWith("/campaign") ||      
+    pathname.startsWith("/promo");          
+
+  if (hideOnLanding) return null; // ⭐ Navbar hide
+
+  // ⭐ Special pages background text color
+  const specialPages = ["/", "/contact"];
+  const isSpecialPage = specialPages.includes(pathname);
   // Scroll-to-hide logic (Yeh JavaScript zaroori hai)
   useEffect(() => {
     const handleScroll = () => {

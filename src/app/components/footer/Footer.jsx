@@ -1,8 +1,21 @@
 "use client"
 import React, { useState } from 'react' // ✅ useState add kiya
 import Link from 'next/link'
-
+// ⭐ IMPORT Pathname
+import { usePathname } from "next/navigation";
 const Footer = () => {
+   const pathname = usePathname();
+   const hideOnLanding =
+    pathname === "/landing/travel-marketing" ||
+    pathname === "/landing" ||
+    pathname === "/travel-agency-leads" ||
+    pathname === "/travel-agency" ||
+    pathname.startsWith("/landing-page") ||
+    pathname.startsWith("/campaign") ||
+    pathname.startsWith("/promo");
+
+  // ⭐ Direct return null = Hide Footer
+  if (hideOnLanding) return null;
   // ✅ Form state add kiya
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState(''); // 'loading', 'success', 'duplicate', 'error'
