@@ -546,6 +546,63 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TESTIMONIALS - updated: animated circular logos only (cards removed) */}
+      <section id="testimonials" className="py-16 md:py-20 px-4 bg-slate-900/60 border-y border-slate-800">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            className="text-2xl md:text-3xl font-bold text-center mb-4"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            🗣 Trusted by Travel Brands
+          </motion.h2>
+          <p className="text-center text-slate-300 mb-8 max-w-2xl mx-auto">
+            A few partners and brands we've worked with.
+          </p>
+
+          {/* Animated circular logos */}
+          <motion.div
+            className="mb-10"
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-slate-950/30 border border-slate-800 rounded-2xl p-6">
+              <div className="flex items-center justify-center gap-6 flex-wrap">
+                {[
+                  "/photos/logo1.jpeg",
+                  "/photos/logo2.jpeg",
+                  "/photos/logo3.jpeg",
+                  "/photos/logo4.jpeg",
+                  "/photos/logo5.jpeg",
+                ].map((src, idx) => (
+                  <motion.div
+                    key={src}
+                    className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-slate-800/40 flex items-center justify-center overflow-hidden border border-slate-700"
+                    animate={{ y: [0, -8, 0], scale: [1, 1.04, 1] }}
+                    transition={{
+                      duration: 3.8,
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      ease: "easeInOut",
+                      delay: idx * 0.15
+                    }}
+                  >
+                    <img
+                      src={src}
+                      alt={`Client Logo ${idx + 1}`}
+                      className="h-12 w-12 md:h-16 md:w-16 object-contain rounded-full"
+                      onError={(e) => { e.target.src = 'https://placehold.co/80x80?text=Logo'; }}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      
       {/* CONTACT FORM SECTION - LOGIC MERGED HERE */}
       <section
         id="form"

@@ -40,7 +40,7 @@ const teamMembers = [
     role: 'Video Editor & Animator',
     bio: 'Creates engaging video content and animations.',
     skills: ['Video Editing', 'Animation', 'Motion Graphics'],
-    photo: 'https://i.pravatar.cc/300?img=30'
+    photo: '/photos/IMG_2091.jpg'
   },
   {
     id: 6,
