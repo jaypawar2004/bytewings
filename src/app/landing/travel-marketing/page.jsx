@@ -269,7 +269,7 @@ export default function Home() {
           </motion.div>
         </div>
         {/* Animated CTA */}
-        {/* <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex justify-center">
           <motion.a
             href="#form"
             aria-label="Get Free Audit"
@@ -282,7 +282,7 @@ export default function Home() {
             <PhoneCall size={18} />
             Get Free Marketing Audit
           </motion.a>
-        </div> */}
+        </div>
       </section>
 
       {/* WHY CHOOSE US */}
