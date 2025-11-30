@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Moon, Sun, PhoneCall, MessageCircle } from "lucide-react";
 
+
 // The navigation links remain the same
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -89,7 +90,18 @@ export default function Home() {
     'Submit Form →';
     
   const isSubmitting = status === 'loading';
+// Logos ka data (Original)
+  const logos = [
+    "/photos/logo1.jpeg",
+    "/photos/logo2.jpeg",
+    "/photos/logo3.jpeg",
+    "/photos/logo4.jpeg",
+    "/photos/logo5.jpeg",
+  ];
 
+  // Seamless loop ke liye array ko 4 baar repeat karte hain
+  // Isse aisa lagega ki bahut saare logos hain aur loop smooth chalega
+  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
   // --- JSX START ---
   return (
     <main className={`min-h-screen ${containerClass} transition-colors duration-300`}>
@@ -546,62 +558,89 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS - updated: animated circular logos only (cards removed) */}
-      <section id="testimonials" className="py-16 md:py-20 px-4 bg-slate-900/60 border-y border-slate-800">
-        <div className="max-w-6xl mx-auto">
-          <motion.h2
-            className="text-2xl md:text-3xl font-bold text-center mb-4"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            🗣 Trusted by Travel Brands
-          </motion.h2>
-          <p className="text-center text-slate-300 mb-8 max-w-2xl mx-auto">
-            A few partners and brands we've worked with.
-          </p>
+      {/* TESTIMONIALS - horizontal infinite marquee of circular logos */}
+     <section id="testimonials" className="py-16 md:py-20 px-4 bg-slate-900/60 border-y border-slate-800 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          className="text-2xl md:text-3xl font-bold text-center mb-4"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          🗣 Trusted by Travel Brands
+        </motion.h2>
+        <p className="text-center text-slate-300 mb-10 max-w-2xl mx-auto">
+          A few partners and brands we've worked with.
+        </p>
 
-          {/* Animated circular logos */}
-          <motion.div
-            className="mb-10"
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="bg-slate-950/30 border border-slate-800 rounded-2xl p-6">
-              <div className="flex items-center justify-center gap-6 flex-wrap">
-                {[
-                  "/photos/logo1.jpeg",
-                  "/photos/logo2.jpeg",
-                  "/photos/logo3.jpeg",
-                  "/photos/logo4.jpeg",
-                  "/photos/logo5.jpeg",
-                ].map((src, idx) => (
-                  <motion.div
-                    key={src}
-                    className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-slate-800/40 flex items-center justify-center overflow-hidden border border-slate-700"
-                    animate={{ y: [0, -8, 0], scale: [1, 1.04, 1] }}
-                    transition={{
-                      duration: 3.8,
-                      repeat: Infinity,
-                      repeatType: "loop",
-                      ease: "easeInOut",
-                      delay: idx * 0.15
+        {/* Infinite Marquee Container */}
+        <div className="relative w-full">
+          
+          {/* Left/Right Fade Effect (Gradient Mask) - Isse infinite look clean dikhta hai */}
+          <div className="absolute inset-y-0 left-0 w-10 md:w-20 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-10 md:w-20 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none"></div>
+
+          <div className="bg-slate-950/30 border border-slate-800 rounded-2xl py-6 overflow-hidden flex">
+            <motion.div
+              className="flex items-center gap-6 md:gap-10 pr-6 md:pr-10" // Padding right to maintain gap at the end of loop
+              initial={{ x: 0 }}
+              animate={{ x: "-50%" }} // Poora list move hone ki jagah half move karega to create loop
+              transition={{
+                repeat: Infinity,
+                duration: 25, // Speed adjust karein (jitna bada number, utna slow)
+                ease: "linear",
+              }}
+              style={{ width: "fit-content" }} // Important for smooth scrolling
+            >
+              {duplicatedLogos.map((src, idx) => (
+                <div
+                  key={`${src}-${idx}`}
+                  className="flex-shrink-0 h-16 w-16 md:h-24 md:w-24 rounded-full bg-slate-800/40 flex items-center justify-center overflow-hidden border border-slate-700 hover:border-slate-500 transition-colors duration-300"
+                >
+                  <img
+                    src={src}
+                    alt={`Client Logo ${idx + 1}`}
+                    className="h-10 w-10 md:h-16 md:w-16 object-contain rounded-full"
+                    onError={(e) => {
+                      e.target.src = "https://placehold.co/80x80?text=Logo";
                     }}
-                  >
-                    <img
-                      src={src}
-                      alt={`Client Logo ${idx + 1}`}
-                      className="h-12 w-12 md:h-16 md:w-16 object-contain rounded-full"
-                      onError={(e) => { e.target.src = 'https://placehold.co/80x80?text=Logo'; }}
-                    />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+                  />
+                </div>
+              ))}
+            </motion.div>
+             {/* Duplicate motion div for seamless fill if screen is extremely wide (Optional but safe) */}
+             <motion.div
+              className="flex items-center gap-6 md:gap-10 pr-6 md:pr-10"
+              initial={{ x: 0 }}
+              animate={{ x: "-50%" }}
+              transition={{
+                repeat: Infinity,
+                duration: 25,
+                ease: "linear",
+              }}
+              style={{ width: "fit-content" }}
+              aria-hidden="true" // Hide from screen readers
+            >
+              {duplicatedLogos.map((src, idx) => (
+                <div
+                  key={`duplicate-${src}-${idx}`}
+                  className="flex-shrink-0 h-16 w-16 md:h-24 md:w-24 rounded-full bg-slate-800/40 flex items-center justify-center overflow-hidden border border-slate-700 hover:border-slate-500 transition-colors duration-300"
+                >
+                  <img
+                    src={src}
+                    alt=""
+                    className="h-10 w-10 md:h-16 md:w-16 object-contain rounded-full"
+                    onError={(e) => {
+                      e.target.src = "https://placehold.co/80x80?text=Logo";
+                    }}
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
       
       {/* CONTACT FORM SECTION - LOGIC MERGED HERE */}
       <section
