@@ -268,6 +268,21 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
+        {/* Animated CTA */}
+        {/* <div className="mt-8 flex justify-center">
+          <motion.a
+            href="#form"
+            aria-label="Get Free Audit"
+            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm md:text-base font-semibold shadow-lg shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <PhoneCall size={18} />
+            Get Free Marketing Audit
+          </motion.a>
+        </div> */}
       </section>
 
       {/* WHY CHOOSE US */}
@@ -319,6 +334,21 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+        {/* Animated CTA */}
+        <div className="mt-8 flex justify-center">
+          <motion.a
+            href="#form"
+            aria-label="Get Free Audit"
+            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm md:text-base font-semibold shadow-lg shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <PhoneCall size={18} />
+            Get Free Marketing Audit
+          </motion.a>
         </div>
       </section>
 
@@ -384,6 +414,21 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
+        {/* Animated CTA */}
+        <div className="mt-8 flex justify-center">
+          <motion.a
+            href="#form"
+            aria-label="Get Free Audit"
+            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm md:text-base font-semibold shadow-lg shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <PhoneCall size={18} />
+            Get Free Marketing Audit
+          </motion.a>
+        </div>
       </section>
 
       {/* PROCESS */}
@@ -446,6 +491,21 @@ export default function Home() {
             </a>
           </div>
         </div>
+        {/* Animated CTA */}
+        {/* <div className="mt-8 flex justify-center">
+          <motion.a
+            href="#form"
+            aria-label="Get Free Audit"
+            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm md:text-base font-semibold shadow-lg shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <PhoneCall size={18} />
+            Get Free Marketing Audit
+          </motion.a>
+        </div> */}
       </section>
 
       {/* RESULTS */}
@@ -476,6 +536,21 @@ export default function Home() {
             <p>🚌 **Kashmir Group Departures:** 7 groups filled in 3 weeks</p>
           </motion.div>
         </div>
+        {/* Animated CTA */}
+        <div className="mt-8 flex justify-center">
+          <motion.a
+            href="#form"
+            aria-label="Get Free Audit"
+            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm md:text-base font-semibold shadow-lg shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <PhoneCall size={18} />
+            Get Free Marketing Audit
+          </motion.a>
+        </div>
       </section>
 
       {/* WHO IS THIS FOR */}
@@ -497,6 +572,21 @@ export default function Home() {
             <li>✔ Honeymoon Package Providers</li>
             <li>✔ New Travel Startups</li>
           </ul>
+        </div>
+        {/* Animated CTA */}
+        <div className="mt-8 flex justify-center">
+          <motion.a
+            href="#form"
+            aria-label="Get Free Audit"
+            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm md:text-base font-semibold shadow-lg shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <PhoneCall size={18} />
+            Get Free Marketing Audit
+          </motion.a>
         </div>
       </section>
 
@@ -539,6 +629,21 @@ export default function Home() {
             *Ad spend is not included in the management fee.
           </p>
         </div>
+        {/* Animated CTA */}
+        <div className="mt-8 flex justify-center">
+          <motion.a
+            href="#form"
+            aria-label="Get Free Audit"
+            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm md:text-base font-semibold shadow-lg shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <PhoneCall size={18} />
+            Get Free Marketing Audit
+          </motion.a>
+        </div>
       </section>
 
       {/* ABOUT */}
@@ -556,9 +661,24 @@ export default function Home() {
             We are <span className="font-semibold">{agencyName}</span> — a digital marketing agency specializing in **travel industry lead generation**. With **1000+ travel leads generated in the last 3 months**, we help agencies scale fast with predictable results.
           </p>
         </div>
+        {/* Animated CTA */}
+        <div className="mt-8 flex justify-center">
+          <motion.a
+            href="#form"
+            aria-label="Get Free Audit"
+            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm md:text-base font-semibold shadow-lg shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <PhoneCall size={18} />
+            Get Free Marketing Audit
+          </motion.a>
+        </div>
       </section>
 
-      {/* TESTIMONIALS - horizontal infinite marquee of circular logos */}
+      {/* TESTIMONIALS - horizontal infinite marquee of circular logos + subtle animated CTA */}
      <section id="testimonials" className="py-16 md:py-20 px-4 bg-slate-900/60 border-y border-slate-800 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <motion.h2
@@ -576,21 +696,21 @@ export default function Home() {
         {/* Infinite Marquee Container */}
         <div className="relative w-full">
           
-          {/* Left/Right Fade Effect (Gradient Mask) - Isse infinite look clean dikhta hai */}
+          {/* Left/Right Fade Effect (Gradient Mask) */}
           <div className="absolute inset-y-0 left-0 w-10 md:w-20 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none"></div>
           <div className="absolute inset-y-0 right-0 w-10 md:w-20 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none"></div>
 
           <div className="bg-slate-950/30 border border-slate-800 rounded-2xl py-6 overflow-hidden flex">
             <motion.div
-              className="flex items-center gap-6 md:gap-10 pr-6 md:pr-10" // Padding right to maintain gap at the end of loop
+              className="flex items-center gap-6 md:gap-10 pr-6 md:pr-10"
               initial={{ x: 0 }}
-              animate={{ x: "-50%" }} // Poora list move hone ki jagah half move karega to create loop
+              animate={{ x: "-50%" }}
               transition={{
                 repeat: Infinity,
-                duration: 25, // Speed adjust karein (jitna bada number, utna slow)
+                duration: 25,
                 ease: "linear",
               }}
-              style={{ width: "fit-content" }} // Important for smooth scrolling
+              style={{ width: "fit-content" }}
             >
               {duplicatedLogos.map((src, idx) => (
                 <div
@@ -608,8 +728,9 @@ export default function Home() {
                 </div>
               ))}
             </motion.div>
-             {/* Duplicate motion div for seamless fill if screen is extremely wide (Optional but safe) */}
-             <motion.div
+
+            {/* Duplicate for seamless loop */}
+            <motion.div
               className="flex items-center gap-6 md:gap-10 pr-6 md:pr-10"
               initial={{ x: 0 }}
               animate={{ x: "-50%" }}
@@ -619,7 +740,7 @@ export default function Home() {
                 ease: "linear",
               }}
               style={{ width: "fit-content" }}
-              aria-hidden="true" // Hide from screen readers
+              aria-hidden="true"
             >
               {duplicatedLogos.map((src, idx) => (
                 <div
@@ -638,6 +759,22 @@ export default function Home() {
               ))}
             </motion.div>
           </div>
+        </div>
+
+        {/* Centered animated CTA */}
+        <div className="mt-8 flex justify-center">
+          <motion.a
+            href="#form"
+            aria-label="Get Free Audit"
+            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm md:text-base font-semibold shadow-lg shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <PhoneCall size={18} />
+            Get Free Marketing Audit
+          </motion.a>
         </div>
       </div>
     </section>
