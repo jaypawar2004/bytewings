@@ -120,9 +120,6 @@
 //   );
 // }
 
-
-
-
 import { portfolioItems } from "@/lib/projects";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -135,7 +132,10 @@ async function getProject(slug) {
 
 // Meta Data
 export async function generateMetadata({ params }) {
-  const project = await getProject(params.slug);
+  // ✅ FIX: params ko pehle await kiya
+  const { slug } = await params;
+  
+  const project = await getProject(slug);
   if (!project) return { title: "Project Not Found" };
 
   return {
@@ -145,7 +145,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function CaseStudyPage({ params }) {
-  const { slug } = params;
+  // ✅ FIX: params ko pehle await kiya
+  const { slug } = await params;
+
   const project = await getProject(slug);
 
   if (!project) notFound();
@@ -160,7 +162,7 @@ export default async function CaseStudyPage({ params }) {
       <div className="relative z-10 container mx-auto px-4 max-w-4xl">
         {/* Back Button */}
         <Link
-          href="/portfolio"
+          href="/"
           className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-8 transition-colors"
         >
           <ArrowLeft size={18} className="mr-2" />
@@ -195,7 +197,7 @@ export default async function CaseStudyPage({ params }) {
           <h2 className="font-bold text-xl">Project Overview</h2>
           <br />
           <p>{cs.overview}</p>
-<br />
+          <br />
           {/* Challenges */}
           <h3 className="font-bold text-md">Challenges</h3>
           <ul>
@@ -203,11 +205,11 @@ export default async function CaseStudyPage({ params }) {
               <li key={index}>{item}</li>
             ))}
           </ul>
-<br />
+          <br />
           {/* Solution */}
           <h3 className="font-bold text-md">Solution</h3>
           <p>{cs.solution}</p>
-<br />
+          <br />
           {/* Features */}
           <h2 className="font-bold text-md">Key Features</h2>
           <ul>
@@ -215,7 +217,7 @@ export default async function CaseStudyPage({ params }) {
               <li key={index}>{feat}</li>
             ))}
           </ul>
-<br />
+          <br />
           {/* Tech Stack */}
           <h2 className="font-bold text-md">Tech Stack Used</h2>
           <div className="flex flex-wrap gap-3 mt-4">
