@@ -22,10 +22,19 @@ const __dirname = path.dirname(__filename);
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // Images: yahi setting rehne dein
-    images: {
-        domains: ['t.commonsupport.com', 'images.unsplash.com'], 
+    // images: {
+    //     domains: ['t.commonsupport.com', 'images.unsplash.com'], 
+    // },
+images: {
+    domains: ['t.commonsupport.com', 'images.unsplash.com'],     
+  remotePatterns: [
+    {
+        
+      protocol: 'https',
+      hostname: '**', // Filhal sab allow karne ke liye ye use kar sakte ho
     },
-
+  ],
+},
     // ✅ WEBPACK CONFIGURATION UPDATE KAREIN
     webpack: (config, { isServer }) => {
         // 'require' ki jagah seedha path ko resolve karein
