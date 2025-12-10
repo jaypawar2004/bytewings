@@ -220,6 +220,11 @@ const Navbar = () => {
               <p>About</p>
             </Magnet>
           </Link>
+          <Link href="/blogs">
+            <Magnet padding={50} disabled={false} magnetStrength={5}>
+              <p>Blog</p>
+            </Magnet>
+          </Link>
           <Link href="/contact">
             <Magnet padding={50} disabled={false} magnetStrength={5}>
               <p>Contact Us</p>

@@ -12,7 +12,10 @@ async function getPost(slug) {
 
 // Set page title and description for SEO
 export async function generateMetadata({ params }) {
-  const post = await getPost(params.slug);
+  // FIX: params ko await karein
+  const { slug } = await params;
+  
+  const post = await getPost(slug);
   if (!post) {
     return { title: "Post Not Found" };
   }
@@ -23,8 +26,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogPostPage({ params }) {
-  // 1. Extract slug from URL
-  const { slug } = params;
+  // FIX: Yahan bhi params ko await karein
+  const { slug } = await params;
   
   // 2. Find post data using slug
   const post = await getPost(slug);
@@ -70,9 +73,6 @@ export default async function BlogPostPage({ params }) {
         </div>
         
         {/* Blog Post Content */}
-        {/* The `prose` class comes from Tailwind Typography plugin.
-            We use dangerouslySetInnerHTML because the post content is stored as an HTML string.
-        */}
         <div
           className="prose prose-lg max-w-none prose-teal prose-headings:font-primary"
           dangerouslySetInnerHTML={{ __html: post.content }}
